@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otp_provider/main.dart';
 import 'package:otp_provider/theme/theme.dart';
+import 'package:otp_provider/view/about.dart';
 import 'package:otp_provider/view/drawer.dart';
 import 'package:otp_provider/view/home_page.dart';
 
@@ -30,6 +31,8 @@ class _BottomnavState extends State<Bottomnav> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static  List<Widget> _widgetOptions = <Widget>[
    AppDrawer(child:HomePage( ) ,) ,
+
+   AppDrawer(child: AboutPage(),),
     Text(
       'All Sheets Here',
       style: optionStyle,

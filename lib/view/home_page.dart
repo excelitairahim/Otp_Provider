@@ -19,22 +19,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    DashboardController dashboardController = Provider.of<DashboardController>(context);
+    DashboardController dashboardController =
+        Provider.of<DashboardController>(context);
     return Scaffold(
       // drawer: AppDrawer(),
-    appBar:AppBar(
-      title: Text('Dashboard'),centerTitle: true,backgroundColor: theme.primaryColor.withOpacity(.8),
-      leading: Builder(
-        builder: (BuildContext appBarContext) {
-          return IconButton(
-              onPressed: () {
-                AppDrawer.of(appBarContext)!.toggle();
-              },
-              icon: Icon(Icons.menu)
-          );
-        },
+      appBar: AppBar(
+        title: Text('Dashboard'),
+        centerTitle: true,
+        backgroundColor: theme.primaryColor.withOpacity(.8),
+        leading: Builder(
+          builder: (BuildContext appBarContext) {
+            return IconButton(
+                onPressed: () {
+                  AppDrawer.of(appBarContext)!.toggle();
+                },
+                icon: Icon(Icons.menu));
+          },
+        ),
       ),
-    ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -51,9 +53,61 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 10,
             ),
-            Expanded(child: SingleChildScrollView(child: OtprequestStatus())),
+                          Table(
+                border: TableBorder.all(width: 1, color: Colors.black45),
+                children: [
+                  TableRow(children: [
+                     TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                      child: Text(
+                          " Request No.",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                      ),
+                    ),
+                        )),
+                    TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                      child: Text(
+                          "Member ID",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                      ),
+                    ),
+                        )),
+                    TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                      child: Container(
+                        child: Text(
+                            "Request Status",
+                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                        ),
+                      ),
+                    ),
+                        )),
+                    TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                      child: Text(
+                          "Request Time",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                      ),
+                    ),
+                        )),
+                  ]),
+                ],
+              ),
+            Expanded(child: OtprequestStatus()
+            ),
             MaterialButton(
               onPressed: () {
+               dashboardController. scrollToMaxExtent();
+       
                 dashboardController.otpRequest();
                 print("onClick");
               },
@@ -78,19 +132,67 @@ class _HomePageState extends State<HomePage> {
             // SizedBox(
             //   height: 10,
             // ),
-             Text(
+            Text(
               'Otp Sending Status',
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: theme.titleTextColor),
             ),
-              SizedBox(
+            SizedBox(
               height: 10,
             ),
-            Expanded(child: SingleChildScrollView(child: OtpSendstatus()))
-        , MaterialButton(
-              onPressed: () {
+                      Table(
+            border: TableBorder.all(width: 1, color: Colors.black45),
+            children: [
+              TableRow(children: [    TableCell(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                      child: Text(
+                          " Sending No.",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                      ),
+                    ),
+                        )),
+                TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                  child: Text(
+                      "Member ID",
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                  ),
+                ),
+                    )),
+                TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                  child: Text(
+                      " Request Status",
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                  ),
+                ),
+                    )),
+                TableCell(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                  child: Text(
+                      "Sending Time",
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+                  ),
+                ),
+                    )),
+              ]),
+            ],
+          ),
+            Expanded(child: OtpSendstatus()),
+            MaterialButton(
+              onPressed: () { 
+              // dashboardController. scrollToMaxExtent();
+                dashboardController.scrollDown();
                 dashboardController.otpSending();
                 print("onClick");
               },
@@ -111,7 +213,8 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
-            ),  ],
+            ),
+          ],
         ),
       ),
     );

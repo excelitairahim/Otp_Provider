@@ -305,7 +305,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               ListTile(
                 leading: Icon(Icons.home),
-                title: Text('Home'),
+                title: Text('Dashboard'),
               ),
               ListTile(
                 leading: Icon(Icons.info),

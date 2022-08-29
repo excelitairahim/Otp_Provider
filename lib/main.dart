@@ -3,6 +3,7 @@ import 'package:otp_provider/view/bottom_navigation_bar.dart';
 import 'package:otp_provider/view/home_page.dart';
 import 'package:otp_provider/view/provider/controller.dart';
 import 'package:provider/provider.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,10 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-     ChangeNotifierProvider<DashboardController>(create: (context) => DashboardController(),)
-    ],
-      child: MaterialApp(debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<DashboardController>(
+          create: (context) => DashboardController(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Otp Provider',
         theme: ThemeData(
           // This is the theme of your application.
@@ -35,57 +40,57 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// import 'package:flutter/material.dart';
-// import 'package:otp_provider/view/drawer.dart';
 
-
-// void main() => runApp(MyApp());
-
-// class MyApp extends StatelessWidget {
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     AppBar appBar = AppBar(
-//       title: Text('Flutter'),
-//       leading: Builder(
-//         builder: (BuildContext appBarContext) {
-//           return IconButton(
-//               onPressed: () {
-//                 AppDrawer.of(appBarContext)!.toggle();
-//               },
-//               icon: Icon(Icons.menu)
-//           );
-//         },
-//       ),
-//     );
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.purple,
-//       ),
-//       home: AppDrawer(
-//         child: Home(appBar: appBar),
-//       ),
-//     );
-//   }
-// }
-
-
-class Home extends StatefulWidget {
-  final AppBar? appBar;
-  Home({key, this.appBar}) : super(key: key);
+class AutoScrollview extends StatefulWidget {
+  const AutoScrollview({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  State<AutoScrollview> createState() => _AutoScrollviewState();
 }
 
-class _HomeState extends State<Home> {
+//final ScrollController _controller = ScrollController();
+
+// This is what you're looking for!
+DashboardController? dashboardController;
+
+// void _scrollDown() {
+//   _controller.animateTo(
+//     _controller.position.maxScrollExtent,
+//     duration: Duration(microseconds: 300),
+//     curve: Curves.easeOut,
+//   );
+// }
+
+class _AutoScrollviewState extends State<AutoScrollview> {
+  int itemcount = 1;
   @override
   Widget build(BuildContext context) {
+    DashboardController dashboardController = Provider.of<DashboardController>(
+      context,
+    );
     return Scaffold(
-      appBar: widget.appBar,
-      body: Center(
-        child: Text('ANIMATE EVERYTHING!!', style: TextStyle(fontSize: 50), textAlign: TextAlign.center,),
+      floatingActionButton: FloatingActionButton.small(
+        onPressed: () {
+          dashboardController.scrollToMaxExtent();
+          // dashboardController.scrollDown();
+          dashboardController.otpRequest();
+        },
+        child: Icon(Icons.arrow_downward),
+      ),
+      body: ListView.builder(
+        controller: dashboardController.scrollController,
+        shrinkWrap: true,
+         //physics: NeverScrollableScrollPhysics(),
+        itemCount: dashboardController.Otprequestlist.length,
+        itemBuilder: (_, i) => ListTile(title: Text('Item $i')),
       ),
     );
-  }}
+  }
+}
+
+//  void scrollDown(){
+
+//     final double end= scrollController.position.maxScrollExtent;
+//  scrollController.animateTo(end,duration: Duration(microseconds: 300), curve: Curves.easeIn);
+//   }
+

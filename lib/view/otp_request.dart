@@ -15,64 +15,69 @@ class OtprequestStatus extends StatefulWidget {
 class _OtprequestStatusState extends State<OtprequestStatus> {
 
 
+// This is what you're looking for!
+
+@override
+  void initState() {
+ 
+    DashboardController dashboardController=Provider.of<DashboardController>(context,listen: false);
+
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-     DashboardController dashboardController=Provider.of<DashboardController>(context);
-    return Container(
-      // width: double.infinity,
-      child: Column(
-        children: [
-          Table(
-            border: TableBorder.all(width: 1, color: Colors.black45),
+     DashboardController dashboardController=Provider.of<DashboardController>(context,);
+
+    return ListView.builder(
+     controller:dashboardController.scrollController ,
+        itemCount: dashboardController.Otprequestlist.length,
+        shrinkWrap: true,
+       
+        // reverse: true,
+        //physics: NeverScrollableScrollPhysics(),
+        itemBuilder: ((context, index) {
+          return Container(
+              // padding: EdgeInsets.all(15),
+              child: Table(
+            border: TableBorder.all(
+                width: 1, color: Colors.black45), //table border
             children: [
-              TableRow(children: [
-                TableCell(
-                    child: Center(
-                  child: Text(
-                    "Member ID",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
+              TableRow(  
+                
+                decoration: BoxDecoration(),
+                children: [
+                TableCell(child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(child: Text('${(index+1).toString()}')),
+                )),
+                TableCell(child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(child: Text('${dashboardController.Otprequestlist[index].menberID .toString()}')),
+                )),
+                TableCell(child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(child: Text(dashboardController.Otprequestlist[index].otpStatus.toString())),
                   ),
                 )),
                 TableCell(
-                    child: Center(
-                  child: Text(
-                    "Request status",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
-                  ),
-                )),
-                TableCell(
-                    child: Center(
-                  child: Text(
-                    "Request Time",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: theme.title2TextColor),
-                  ),
-                )),
+                    child:
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(child: Column(
+                            children: [
+                              Text(dashboardController.timeString. toString()),
+                              // Text(dashboardController.date. toString()),
+                            ],
+                          )),
+                        )),
               ]),
             ],
-          ),
-          ListView.builder(
-              itemCount: dashboardController.Otprequestlist.length,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: ((context, index) {
-                return Container(
-                    // padding: EdgeInsets.all(15),
-                    child: Table(
-                  border: TableBorder.all(
-                      width: 1, color: Colors.black45), //table border
-                  children: [
-                    TableRow(children: [
-                      TableCell(child: Center(child: Text('${(index+1).toString()}'))),
-                      TableCell(child: Center(child: Text(dashboardController.Otprequestlist[index].otpStatus.toString()))),
-                      TableCell(
-                          child:
-                              Center(child: Text(DateTime.now().toString()))),
-                    ]),
-                  ],
-                ));
-              }))
-        ],
-      ),
-    );
+          ));
+        }));
   }
+
+ 
 }
