@@ -16,7 +16,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold( 
       
       appBar: AppBar(
-        title: Text('About'),
+        title: Text('About',),
         centerTitle: true,
         backgroundColor: theme.primaryColor.withOpacity(.8),
         leading: Builder(
@@ -28,6 +28,6 @@ class _AboutPageState extends State<AboutPage> {
                 icon: Icon(Icons.menu));
           },
         ),
-      ),body: Center(child: Text('About Page',),),);
+      ),body: Center(child: Text('About Page',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:theme.titleTextColor),),),);
   }
 }
