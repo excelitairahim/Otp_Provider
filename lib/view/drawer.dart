@@ -1,4 +1,3 @@
-
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:otp_provider/theme/theme.dart';
@@ -22,7 +21,7 @@
 //       width: MediaQuery.of(context).size.width * .7,
 //       child: Drawer(
 //         child: Scaffold(
-       
+
 //           body: Column(
 //             crossAxisAlignment: CrossAxisAlignment.stretch,
 //             children: [SizedBox(height: 40,),
@@ -56,7 +55,6 @@
 //           // },
 //         ),
 //         (
-        
 
 //         ListTile(
 //           leading: Icon(
@@ -82,7 +80,7 @@
 //                     TextButton(
 //                       child: Text("Yes",style: TextStyle(color: Colors.red),),
 //                       onPressed: () async{
-                        
+
 //                         // Navigator.pushAndRemoveUntil(
 //                         //     context,
 //                         //     MaterialPageRoute(builder: (context) => LogInScreen()),
@@ -101,7 +99,6 @@
 //   );
 //   }
 // }
-
 
 //   Widget _buildHeader(BuildContext context) => Padding(
 //     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -166,7 +163,7 @@
 //             color: theme.titleTextColor,
 //           ),
 //           title: Text("Device info"),
-         
+
 //         );
 //      }) ],
 //     ),
@@ -174,20 +171,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:otp_provider/theme/theme.dart';
+import 'package:otp_provider/view/neumorphism_design/neumorphism_container.dart';
 
 class AppDrawer extends StatefulWidget {
   final Widget? child;
   AppDrawer({key, this.child}) : super(key: key);
 
-  static _AppDrawerState? of(BuildContext context) => context.findAncestorStateOfType<_AppDrawerState>();
+  static _AppDrawerState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_AppDrawerState>();
 
   @override
   _AppDrawerState createState() => _AppDrawerState();
 }
 
-class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMixin {
+class _AppDrawerState extends State<AppDrawer>
+    with SingleTickerProviderStateMixin {
   static Duration duration = Duration(milliseconds: 300);
- late AnimationController _controller;
+  late AnimationController _controller;
   static const double maxSlide = 255;
   static const dragRightStartVal = 60;
   static const dragLeftStartVal = maxSlide - 20;
@@ -195,15 +195,16 @@ class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMix
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: _AppDrawerState.duration);
+    _controller =
+        AnimationController(vsync: this, duration: _AppDrawerState.duration);
     super.initState();
   }
 
   void close() => _controller.reverse();
 
-  void open () => _controller.forward();
+  void open() => _controller.forward();
 
-  void toggle () {
+  void toggle() {
     if (_controller.isCompleted) {
       close();
     } else {
@@ -218,8 +219,10 @@ class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMix
   }
 
   void _onDragStart(DragStartDetails startDetails) {
-    bool isDraggingFromLeft = _controller.isDismissed && startDetails.globalPosition.dx < dragRightStartVal;
-    bool isDraggingFromRight = _controller.isCompleted && startDetails.globalPosition.dx > dragLeftStartVal;
+    bool isDraggingFromLeft = _controller.isDismissed &&
+        startDetails.globalPosition.dx < dragRightStartVal;
+    bool isDraggingFromRight = _controller.isCompleted &&
+        startDetails.globalPosition.dx > dragLeftStartVal;
     shouldDrag = isDraggingFromLeft || isDraggingFromRight;
   }
 
@@ -240,7 +243,8 @@ class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMix
     double dragVelocity = dragEndDetails.velocity.pixelsPerSecond.dx.abs();
 
     if (dragVelocity >= _kMinFlingVelocity) {
-      double visualVelocityInPx = dragEndDetails.velocity.pixelsPerSecond.dx / MediaQuery.of(context).size.width;
+      double visualVelocityInPx = dragEndDetails.velocity.pixelsPerSecond.dx /
+          MediaQuery.of(context).size.width;
       _controller.fling(velocity: visualVelocityInPx);
     } else if (_controller.value < 0.5) {
       close();
@@ -260,7 +264,7 @@ class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMix
         builder: (BuildContext context, _) {
           double animationVal = _controller.value;
           double translateVal = animationVal * maxSlide;
-          double scaleVal = 1 - (animationVal *  0.3);
+          double scaleVal = 1 - (animationVal * 0.3);
           return Stack(
             children: <Widget>[
               CustomDrawer(),
@@ -270,13 +274,12 @@ class _AppDrawerState extends State<AppDrawer> with SingleTickerProviderStateMix
                   ..translate(translateVal)
                   ..scale(scaleVal),
                 child: GestureDetector(
-                  onTap: () {
-                    if (_controller.isCompleted) {
-                      close();
-                    }
-                  },
-                  child: widget.child
-                ),
+                    onTap: () {
+                      if (_controller.isCompleted) {
+                        close();
+                      }
+                    },
+                    child: widget.child),
               ),
             ],
           );
@@ -290,37 +293,199 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: theme.primaryColor,
-      child: SafeArea(
-        child: Theme(
-          data: ThemeData(
-            brightness: Brightness.dark,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
+      color: theme.title2TextColor,
+      child: Theme(
+        data: ThemeData(
+          brightness: Brightness.dark,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(color: Colors.grey[300],
+              child: Container(
+                height: 119,
+             color: Colors.grey[300],
                 padding: EdgeInsets.all(16),
-                child: Text('Otp Provider Service', style: TextStyle(fontSize: 30, color: Colors.white)),
+                child: Center(
+                  child: Container(
+                    //color: Colors.grey[300],
+                    decoration: nMboxInvert,
+            
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Otp Provider Service',
+                          style: TextStyle(fontSize: 25, color: theme.titleTextColor,fontWeight: FontWeight.w600)),
+                    ),
+                  ),
+                ),
               ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Dashboard'),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20, top: 10),
+              child: Card(
+                elevation: 5,
+                shadowColor: Colors.white,
+                child: Container(
+                    width: 160,
+                    height: 30,
+                    color: Colors.grey[300],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: theme.primaryColor,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30))),
+                            height: 30,
+                            width: 100,
+                            child: Center(
+                                child: Text(
+                              'Dashboard',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.bold),
+                            )),
+                          ),
+                        ),
+                        Expanded(
+                            child: Icon(
+                          Icons.home,
+                          color: theme.primaryColor,
+                        )),
+                      ],
+                    )),
               ),
-              ListTile(
-                leading: Icon(Icons.info),
-                title: Text('About'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Card(
+                elevation: 5,
+                shadowColor: Colors.white,
+                child: Container(
+                    width: 160,
+                    height: 30,
+                    color: Colors.grey[300],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: theme.primaryColor,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30))),
+                            height: 30,
+                            width: 100,
+                            child: Center(
+                              child: Text(
+                                'About',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                            child: Icon(
+                          Icons.person,
+                          color: theme.primaryColor,
+                        )),
+                      ],
+                    )),
               ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Card(
+                elevation: 5,
+                shadowColor: Colors.white,
+                child: Container(
+                    width: 160,
+                    height: 30,
+                    color: Colors.grey[300],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: theme.primaryColor,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30))),
+                            height: 30,
+                            width: 100,
+                            child: Center(
+                              child: Text(
+                                'Setting',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                            child: Icon(
+                          Icons.settings,
+                          color: theme.primaryColor,
+                        )),
+                      ],
+                    )),
               ),
-              ListTile(
-                leading: Icon(Icons.lock),
-                title: Text('Logout'),
-              )
-            ],
-          ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 20),
+              child: Card(
+                elevation: 5,
+                shadowColor: Colors.white,
+                child: Container(
+                    width: 160,
+                    height: 30,
+                    color: Colors.grey[300],
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: theme.primaryColor,
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(30))),
+                            height: 30,
+                            width: 100,
+                            child: Center(
+                              child: Text(
+                                'Setting',
+                                style: TextStyle(
+                                    fontSize: 15, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                            child: Icon(
+                          Icons.lock,
+                          color: theme.primaryColor,
+                        )),
+                      ],
+                    )),
+              ),
+            ),
+          ],
         ),
       ),
     );
