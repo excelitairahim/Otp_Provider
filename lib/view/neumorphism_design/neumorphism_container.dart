@@ -7,8 +7,8 @@ Color mCC = Colors.green.withOpacity(0.65);
 Color fCL = Colors.grey.shade600;
 
 BoxDecoration nMbox = BoxDecoration(
- // shape: BoxShape.circle,
-  color: Colors.grey[300],//mC,
+  shape: BoxShape.circle,
+  color: mC,
   boxShadow: [
     BoxShadow(
       color: mCD,
@@ -24,14 +24,14 @@ BoxDecoration nMbox = BoxDecoration(
 );
 
 BoxDecoration nMboxInvert = BoxDecoration(
-  borderRadius: BorderRadius.circular(15),
+  borderRadius: BorderRadius.circular(5),
   color: mCD,
   boxShadow: [
-    BoxShadow(
-      color: mCL,
-      offset: Offset(3, 3),
-      blurRadius: 3,
-      spreadRadius: -3
-    ),
+    // BoxShadow(
+    //   color: mCL,
+    //   offset: Offset(1, 1),
+    //   blurRadius: 1,
+    //   spreadRadius: -1
+    // ),
   ]
 );

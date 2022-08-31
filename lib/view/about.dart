@@ -34,12 +34,14 @@ class _AboutPageState extends State<AboutPage> {
       body: Column(
         children: [
           Center(
-            child: Text(
-              'About Page',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: theme.titleTextColor),
+            child: Center(
+              child: Text(
+                'About Page',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: theme.titleTextColor),
+              ),
             ),
           ),
       ],

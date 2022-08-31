@@ -3,6 +3,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:otp_provider/main.dart';
 import 'package:otp_provider/theme/theme.dart';
 import 'package:otp_provider/view/about.dart';
+import 'package:otp_provider/view/dash_board.dart';
 import 'package:otp_provider/view/drawer.dart';
 import 'package:otp_provider/view/home_page.dart';
 import 'package:otp_provider/view/provider/controller.dart';
@@ -37,7 +38,7 @@ class _BottomnavState extends State<Bottomnav> {
       child: HomePage(),
     ),
     AppDrawer(
-      child: AboutPage(),
+      child: Dashboard(),
     ),
     Text(
       'All Sheets Here',
@@ -65,79 +66,90 @@ class _BottomnavState extends State<Bottomnav> {
         }
       },
       child: Scaffold(
-        extendBodyBehindAppBar: true,
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
-          color: theme.primaryColor,
-          notchMargin: 4,
-          clipBehavior: Clip.antiAlias,
-          child: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Dashbord',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.note),
-                label: 'About',
-              ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.grid_view),
-              //   label: 'Grid',
-              // ),
-              // BottomNavigationBarItem(
-              //   icon: Icon(Icons.favorite),
-              //   label: 'Favorite',
-              // ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: theme.primaryColor,
-            unselectedItemColor: Colors.grey,
-            onTap: _onItemTapped,
-            // backgroundColor: Colors.purpleAccent,
-            type: BottomNavigationBarType.fixed,
+          extendBodyBehindAppBar: true,
+          body: Center(
+            child: _widgetOptions.elementAt(_selectedIndex),
           ),
-        ),
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: SpeedDial(
-          animatedIcon: AnimatedIcons.menu_close,
-          openCloseDial: isDialOpen,
-          backgroundColor: theme.buttonColor,
-          overlayColor: Colors.grey,
-          overlayOpacity: 0.5,
-          spacing: 15,
-          spaceBetweenChildren: 15,
-          closeManually: true,
-          children: [
-            SpeedDialChild(
-                backgroundColor: Colors.grey[300],
-                child: Icon(Icons.dataset_rounded),
-                label: 'Otp Request',
-                onTap: () {
-                  dashboardController.scrollToMaxExtent();
+          bottomNavigationBar: BottomAppBar(
+            shape: CircularNotchedRectangle(),
+            color: theme.primaryColor,
+            notchMargin: 4,
+            clipBehavior: Clip.antiAlias,
+            child: BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Dashbord',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.note),
+                  label: 'About',
+                ),
+                // BottomNavigationBarItem(
+                //   icon: Icon(Icons.grid_view),
+                //   label: 'Grid',
+                // ),
+                // BottomNavigationBarItem(
+                //   icon: Icon(Icons.favorite),
+                //   label: 'Favorite',
+                // ),
+              ],
+              currentIndex: _selectedIndex,
+              selectedItemColor: theme.primaryColor,
+              unselectedItemColor: Colors.grey,
+              onTap: _onItemTapped,
+              // backgroundColor: Colors.purpleAccent,
+              type: BottomNavigationBarType.fixed,
+            ),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => AppDrawer(child: Dashboard()))));
+            },
+            child: Icon(Icons.storage),
+            backgroundColor: theme.primaryColor,
+          )
+          // SpeedDial(
+          //   animatedIcon: AnimatedIcons.menu_close,
+          //   openCloseDial: isDialOpen,
+          //   backgroundColor: theme.primaryColor,
+          //   overlayColor: Colors.grey,
+          //   overlayOpacity: 0.5,
+          //   spacing: 15,
+          //   spaceBetweenChildren: 15,
+          //   closeManually: true,
+          //   children: [
+          //     SpeedDialChild(
+          //         backgroundColor: Colors.grey[300],
+          //         child: Icon(Icons.message),
+          //         label: 'Otp Request',
+          //         onTap: () {
+          //           dashboardController.scrollToMaxExtent();
 
-                  dashboardController.otpRequest();
-                  //     print("onClick");
+          //           dashboardController.otpRequest();
+          //           //     print("onClick");
 
-                  print('Mail Tapped');
-                }),
-            SpeedDialChild(
-                backgroundColor: Colors.grey[300],
-                child: Icon(Icons.send),
-                label: 'Otp Send',
-                onTap: () {
-                  // dashboardController. scrollToMaxExtent();
-                  dashboardController.scrollDown();
-                  dashboardController.otpSending();
-                  print("onClick");
-                  //print('Copy Tapped');
-                }),
-          ],
-        ),
-      ),
+          //           print('Mail Tapped');
+          //         }),
+          //     SpeedDialChild(
+          //         backgroundColor: Colors.grey[300],
+          //         child: Icon(Icons.send),
+          //         label: 'Otp Send',
+          //         onTap: () {
+          //           // dashboardController. scrollToMaxExtent();
+          //           dashboardController.scrollDown();
+          //           dashboardController.otpSending();
+          //           print("onClick");
+          //           //print('Copy Tapped');
+          //         }),
+          //   ],
+          // ),
+          ),
     );
   }
 }

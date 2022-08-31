@@ -4,6 +4,19 @@
       jars="/Users/macmini/Desktop/A.Rahim/otp_provider/build/app/intermediates/flutter/release/libs.jar"
       resolved="__local_aars__:/Users/macmini/Desktop/A.Rahim/otp_provider/build/app/intermediates/flutter/release/libs.jar:unspecified"/>
   <library
+      name="/Users/macmini/Desktop/A.Rahim/otp_provider/android@@:url_launcher_android::release"
+      jars="/Users/macmini/Desktop/A.Rahim/otp_provider/build/url_launcher_android/.transforms/dff9cdc395e70856d3fcce86d8fa3f8c/transformed/out/jars/classes.jar"
+      resolved="io.flutter.plugins.urllauncher:url_launcher_android:unspecified"
+      folder="/Users/macmini/Desktop/A.Rahim/otp_provider/build/url_launcher_android/.transforms/dff9cdc395e70856d3fcce86d8fa3f8c/transformed/out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"
       jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/io.flutter/flutter_embedding_release/1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187/b1ef772a67fd82e70fd46706bfaa99a9976a86f0/flutter_embedding_release-1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187.jar"
       resolved="io.flutter:flutter_embedding_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187"/>
@@ -61,18 +74,6 @@
       name="io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187@jar"
       jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/io.flutter/x86_64_release/1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187/3f8298dbbd697153f25d0ccc78d3948f630cec2e/x86_64_release-1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187.jar"
       resolved="io.flutter:x86_64_release:1.0.0-e85ea0e79c6d894c120cda4ee8ee10fe6745e187"/>
-  <library
-      name="org.jetbrains.kotlin:kotlin-stdlib:1.6.10@jar"
-      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.10/b8af3fe6f1ca88526914929add63cf5e7c5049af/kotlin-stdlib-1.6.10.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.6.10"/>
-  <library
-      name="org.jetbrains:annotations:13.0@jar"
-      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
-      resolved="org.jetbrains:annotations:13.0"/>
-  <library
-      name="org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10@jar"
-      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.10/c118700e3a33c8a0d9adc920e9dec0831171925/kotlin-stdlib-common-1.6.10.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10"/>
   <library
       name="androidx.lifecycle:lifecycle-common-java8:2.2.0@jar"
       jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common-java8/2.2.0/cd3478503da69b1a7e0319bd2d1389943db9b364/lifecycle-common-java8-2.2.0.jar"
@@ -288,4 +289,16 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib:1.6.10@jar"
+      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.10/b8af3fe6f1ca88526914929add63cf5e7c5049af/kotlin-stdlib-1.6.10.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.6.10"/>
+  <library
+      name="org.jetbrains:annotations:13.0@jar"
+      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
+      resolved="org.jetbrains:annotations:13.0"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10@jar"
+      jars="/Users/macmini/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.10/c118700e3a33c8a0d9adc920e9dec0831171925/kotlin-stdlib-common-1.6.10.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-common:1.6.10"/>
 </libraries>

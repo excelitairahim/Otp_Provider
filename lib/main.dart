@@ -42,6 +42,145 @@ class MyApp extends StatelessWidget {
 }
 
 
+class MyWidget extends StatefulWidget {
+  const MyWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  @override
+  Widget build(BuildContext context) {
+ return Scaffold(
+        body: SafeArea(
+          child: Container(
+            color: Colors.grey[100],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.arrow_back_ios,
+                          color: Colors.black87, size: 15),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 105),
+                      child: Text(
+                        'Table',
+                        style: TextStyle(
+                          fontFamily: 'Avenir',
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Divider(color: Colors.grey[300], thickness: 1),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: DataTable(
+                    columnSpacing: 35.0,
+                    showBottomBorder: true,
+                    headingRowHeight: 40,
+                    columns: const <DataColumn>[
+                      DataColumn(
+                        label: Text(
+                          'Browser',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Payment',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Utility',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                      DataColumn(
+                        label: Text(
+                          'Kids',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                    rows: const <DataRow>[
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Chrome')),
+                          DataCell(Text('GPay')),
+                          DataCell(Text('Vodafone')),
+                          DataCell(Text('Alphabet Learning')),
+                        ],
+                      ),
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Firefox')),
+                          DataCell(Text('PayTM')),
+                          DataCell(Text('Airtel')),
+                          DataCell(Text('NPTEL')),
+                        ],
+                      ),
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Tor')),
+                          DataCell(Text('PayPal')),
+                          DataCell(Text('Drive')),
+                          DataCell(Text('Coursera')),
+                        ],
+                      ),
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Bravo')),
+                          DataCell(Text('Oxigen')),
+                          DataCell(Text('DishTv')),
+                          DataCell(Text('EDX')),
+                        ],
+                      ),
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Opera')),
+                          DataCell(Text('PhonePe')),
+                          DataCell(Text('Drive')),
+                          DataCell(Text('Swayam')),
+                        ],
+                      ),
+                      DataRow(
+                        cells: <DataCell>[
+                          DataCell(Text('Microsoft Edge')),
+                          DataCell(Text('SBI')),
+                          DataCell(Text('Jio Fibre')),
+                          DataCell(Text('YouTube Kids')),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+  }
+}
 
 class MyHomePage extends StatefulWidget {
   @override

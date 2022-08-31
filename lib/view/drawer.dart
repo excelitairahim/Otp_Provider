@@ -293,199 +293,46 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: theme.title2TextColor,
+      color: theme.primaryColor,
       child: Theme(
         data: ThemeData(
           brightness: Brightness.dark,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(color: Colors.grey[300],
-              child: Container(
-                height: 119,
-             color: Colors.grey[300],
-                padding: EdgeInsets.all(16),
-                child: Center(
-                  child: Container(
-                    //color: Colors.grey[300],
-                    decoration: nMboxInvert,
-            
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Otp Provider Service',
-                          style: TextStyle(fontSize: 25, color: theme.titleTextColor,fontWeight: FontWeight.w600)),
-                    ),
-                  ),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                color: theme.primaryColor,
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Otp Provider Service',
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600)),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20, top: 10),
-              child: Card(
-                elevation: 5,
-                shadowColor: Colors.white,
-                child: Container(
-                    width: 160,
-                    height: 30,
-                    color: Colors.grey[300],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: theme.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(30))),
-                            height: 30,
-                            width: 100,
-                            child: Center(
-                                child: Text(
-                              'Dashboard',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ),
-                        Expanded(
-                            child: Icon(
-                          Icons.home,
-                          color: theme.primaryColor,
-                        )),
-                      ],
-                    )),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Dashboard'),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Card(
-                elevation: 5,
-                shadowColor: Colors.white,
-                child: Container(
-                    width: 160,
-                    height: 30,
-                    color: Colors.grey[300],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: theme.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(30))),
-                            height: 30,
-                            width: 100,
-                            child: Center(
-                              child: Text(
-                                'About',
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                            child: Icon(
-                          Icons.person,
-                          color: theme.primaryColor,
-                        )),
-                      ],
-                    )),
+              ListTile(
+                leading: Icon(Icons.info),
+                title: Text('About'),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Card(
-                elevation: 5,
-                shadowColor: Colors.white,
-                child: Container(
-                    width: 160,
-                    height: 30,
-                    color: Colors.grey[300],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: theme.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(30))),
-                            height: 30,
-                            width: 100,
-                            child: Center(
-                              child: Text(
-                                'Setting',
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                            child: Icon(
-                          Icons.settings,
-                          color: theme.primaryColor,
-                        )),
-                      ],
-                    )),
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Setting'),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Card(
-                elevation: 5,
-                shadowColor: Colors.white,
-                child: Container(
-                    width: 160,
-                    height: 30,
-                    color: Colors.grey[300],
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: theme.primaryColor,
-                                borderRadius: BorderRadius.only(
-                                    bottomRight: Radius.circular(30))),
-                            height: 30,
-                            width: 100,
-                            child: Center(
-                              child: Text(
-                                'Setting',
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                            child: Icon(
-                          Icons.lock,
-                          color: theme.primaryColor,
-                        )),
-                      ],
-                    )),
+              ListTile(
+                leading: Icon(Icons.lock),
+                title: Text('Logout'),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

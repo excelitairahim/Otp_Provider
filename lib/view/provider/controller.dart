@@ -32,7 +32,7 @@ class DashboardController extends ChangeNotifier {
 }
   otpRequest() {
 
- timeString = DateFormat('hh:mm:ss a').format(DateTime.now());
+ timeString = DateFormat('hh:mm:ss ').format(DateTime.now());
     date = DateFormat('dd/MMM/yyy').format(DateTime.now());
     OtpProvidermodel otpProvidermodel =
         OtpProvidermodel(serial: 1, menberID: 121, otpStatus: true, otpTime: timeString);
@@ -40,7 +40,7 @@ class DashboardController extends ChangeNotifier {
     notifyListeners();
   }
     otpSending() {
-       timeString = DateFormat('hh:mm:ss a').format(DateTime.now());
+       timeString = DateFormat('hh:mm:ss ').format(DateTime.now());
     date = DateFormat('dd/MMM/yyy').format(DateTime.now());
     OtpProvidermodel otpProvidermodel =
         OtpProvidermodel(menberID: 321, otpStatus: true, otpTime:timeString );
