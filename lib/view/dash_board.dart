@@ -20,17 +20,12 @@ class _DashboardState extends State<Dashboard> {
     'Remaining Sms'
   ];
   List icon_list = [
-  'asset/check-list.png',
-   'asset/comments.png',
+    'asset/check-list.png',
+    'asset/comments.png',
     'asset/send.png',
-     'asset/mobile-banking.png',
-      'asset/mobile-banking.png',
-       'asset/mobile-banking.png',
-      
-      
-      
-
-    
+    'asset/mobile-banking.png',
+    'asset/mobile-banking.png',
+    'asset/mobile-banking.png',
   ];
   @override
   Widget build(BuildContext context) {
@@ -51,40 +46,40 @@ class _DashboardState extends State<Dashboard> {
             },
           ),
         ),
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start,
-          children: [ Padding(
-              padding: const EdgeInsets.only(left: 10,top: 10),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10, top: 10),
               child: Text(
                 "Welcome, Otp Service",
                 style: TextStyle(
-               //   color: Colors.white,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold
-                ),
+                    //   color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
             ),
             Padding(
-               padding: const EdgeInsets.only(left: 10,top: 3),
+              padding: const EdgeInsets.only(left: 10, top: 3),
               child: Text(
                 "Select A Menu",
                 style: TextStyle(
-               //   color: Colors.white,
+                  //   color: Colors.white,
                   fontSize: 15.0,
-                 // fontWeight: FontWeight.bold
+                  // fontWeight: FontWeight.bold
                 ),
                 textAlign: TextAlign.start,
               ),
             ),
             Padding(
-             padding: const EdgeInsets.only(left: 10,top: 13),
+              padding: const EdgeInsets.only(left: 10, top: 13),
               child: Text(
                 "main Menu",
                 style: TextStyle(
-               //   color: Colors.white,
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold
-                ),
+                    //   color: Colors.white,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
             ),
@@ -105,8 +100,10 @@ class _DashboardState extends State<Dashboard> {
                     return Card(
                       child: Column(
                         children: [
-                          SizedBox(height: 10,),
-                         Expanded(child: Image.asset(icon_list[index])),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Expanded(child: Image.asset(icon_list[index])),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,

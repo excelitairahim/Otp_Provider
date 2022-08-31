@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
      // backgroundColor: Colors.grey[300],
      // drawer: AppDrawer(),
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Text('Otp Service'),
         centerTitle: true,
         backgroundColor: theme.primaryColor.withOpacity(.8),
         leading: Builder(

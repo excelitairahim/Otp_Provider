@@ -38,7 +38,7 @@ class _BottomnavState extends State<Bottomnav> {
       child: HomePage(),
     ),
     AppDrawer(
-      child: Dashboard(),
+      child: AboutPage(),
     ),
     Text(
       'All Sheets Here',
@@ -79,7 +79,7 @@ class _BottomnavState extends State<Bottomnav> {
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home),
-                  label: 'Dashbord',
+                  label: 'Status',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.note),
