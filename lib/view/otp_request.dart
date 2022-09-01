@@ -63,8 +63,8 @@ class _OtprequestStatusState extends State<OtprequestStatus> {
                             'No.${(index + 1).toString()}',
                             style: TextStyle(
                                 color: index.isOdd
-                                    ? theme.table_text_color
-                                    : theme.table_text_color2,
+                                    ? Colors.green
+                                    : Colors.red
                             
                                 ),
                           ),
@@ -78,8 +78,8 @@ class _OtprequestStatusState extends State<OtprequestStatus> {
                           child: Text(
                               '${dashboardController.Otprequestlist[index].menberID.toString()}',style: TextStyle(
                                 color: index.isOdd
-                                    ? theme.table_text_color
-                                    : theme.table_text_color2,
+                                    ? Colors.green
+                                    : Colors.red
                                 ))))),
                     
                     TableCell(
@@ -99,9 +99,10 @@ class _OtprequestStatusState extends State<OtprequestStatus> {
                           ),
                           Text(index.isOdd
                               ? 'True'.toString()
-                              : ' false'.toString(),style: TextStyle(color: index.isOdd
-                                    ? theme.table_text_color
-                                    : theme.table_text_color2,
+                              : ' false'.toString(),style: TextStyle(
+                               color: index.isOdd
+                                    ? Colors.green
+                                    : Colors.red
                                )),
                         ],
                       )),
@@ -113,9 +114,9 @@ class _OtprequestStatusState extends State<OtprequestStatus> {
                           child: Column(
                         children: [
                           Text(dashboardController.timeString.toString(),style: TextStyle(
-                                color: index.isOdd
-                                    ? theme.table_text_color
-                                    : theme.table_text_color2,
+                               color: index.isOdd
+                                    ? Colors.green
+                                    : Colors.red
                                 )),
                           // Text(dashboardController.date. toString()),
                         ],
@@ -152,3 +153,4 @@ class _OtprequestStatusState extends State<OtprequestStatus> {
         }));
   }
 }
+

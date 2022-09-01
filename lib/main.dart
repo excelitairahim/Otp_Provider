@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otp_provider/view/bottom_navigation_bar.dart';
+import 'package:otp_provider/view/dash_board.dart';
+import 'package:otp_provider/view/drawer.dart';
 import 'package:otp_provider/view/home_page.dart';
 import 'package:otp_provider/view/provider/controller.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const Bottomnav(),
+        home: AppDrawer(child: Dashboard()),
       ),
     );
   }

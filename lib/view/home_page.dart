@@ -12,15 +12,88 @@ import 'package:otp_provider/view/provider/controller.dart';
 import 'package:provider/provider.dart';
 
 import 'neumorphism_design/nUButton.dart';
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+class AppOtpPage extends StatefulWidget {
+  const AppOtpPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AppOtpPage> createState() => _AppOtpPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppOtpPageState extends State<AppOtpPage> {
+List<GridColumn> getColumns(Size size) {
+    List<GridColumn> columns;
+    columns = ([
+      GridColumn(
+        columnName: 'id',
+        width: size.width * .15,
+        label: Container(
+          color: Colors.orangeAccent.shade100,
+          padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text(
+            'SL No',
+            overflow: TextOverflow.clip,
+            softWrap: true,
+          ),
+        ),
+      ),
+      GridColumn(
+        columnName: 'receipt_number',
+        width: size.width * .25,
+        label: Container(
+          color: Colors.amber.shade100,
+          padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text(
+            'Receipt No',
+            overflow: TextOverflow.clip,
+            softWrap: true,
+          ),
+        ),
+      ),
+      GridColumn(
+        columnName: 'receipt_date',
+        width: size.width * .25,
+        label: Container(
+          color: Colors.greenAccent.shade100,
+          padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text(
+            'Receipt Date',
+            overflow: TextOverflow.visible,
+            softWrap: true,
+          ),
+        ),
+      ),
+      GridColumn(
+        columnName: 'total_amount',
+        width: size.width * .3,
+        label: Container(
+          color: Colors.blueAccent.shade100,
+          padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text(
+            'Total Amount',
+            overflow: TextOverflow.clip,
+            softWrap: true,
+          ),
+        ),
+      ),
+      GridColumn(
+        columnName: 'status',
+        width: size.width * .2,
+        label: Container(
+          color: Colors.lightGreen.shade100,
+          padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text('Status'),
+        ),
+      )
+    ]);
+    return columns;
+  }
+
   @override
   Widget build(BuildContext context) {
     DashboardController dashboardController =
@@ -169,7 +242,9 @@ class _HomePageState extends State<HomePage> {
                 
               ),  ],
             ),
-            Expanded(child: OtprequestStatus()),
+            Expanded(child: 
+            OtprequestStatus()
+            ),
           
             SizedBox(
               height: 5,

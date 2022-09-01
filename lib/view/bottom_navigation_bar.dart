@@ -35,7 +35,7 @@ class _BottomnavState extends State<Bottomnav> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _widgetOptions = <Widget>[
     AppDrawer(
-      child: HomePage(),
+      child: Dashboard(),
     ),
     AppDrawer(
       child: AboutPage(),
